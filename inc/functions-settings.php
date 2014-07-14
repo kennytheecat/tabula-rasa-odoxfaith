@@ -101,25 +101,7 @@ if ( ! isset( $content_width ) ) {
 INCLUDES
 **************************************************************/
 //require_once('inc/custom-post-type.php'); 
-
-function post_formats() {
-	// adding post format support
-	//See http://codex.wordpress.org/Post_Formats
-	add_theme_support( 'post-formats',
-		array(
-			'aside',             // title less blurb
-			// 'audio',             // audio
-			// 'chat',               // chat transcript
-			// 'gallery',           // gallery of images
-			'image',             // an image
-			'link',              // quick link to other site
-			'quote',             // a quick quote
-			//'status',            // a Facebook like status update
-			'video'             // video
-		)
-	);
-}
-add_action( 'after_setup_theme', 'post_formats' );
+require_once('functions-widgets.php'); 
 
 // This removes the annoying […] to a Read More link
 function tr_excerpt_more($more) {
@@ -155,6 +137,8 @@ function tr_social_menu() {
   }
 }
 
+add_image_size( 'featured_cat', 278, 125, true );
+add_image_size( 'archive', 300, 200, true );
 
 /** Google Analytics
 **************************************************************/
@@ -212,7 +196,7 @@ function be_initialize_cmb_meta_boxes() {
 
 function tr_scripts_and_styles_options() { 
 	if (!is_admin()) {}
-  wp_enqueue_style( 'google-fonts', 'http://fonts.googleapis.com/css?family=PT+Serif|Open+Sans:400,700|Open+Sans+Condensed:700' );
+  wp_enqueue_style( 'google-fonts', 'http://fonts.googleapis.com/css?family=Asul|PT+Serif|Open+Sans:400,700|Open+Sans+Condensed:700' );
   wp_enqueue_style( 'font-awesome',  'http://maxcdn.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css');
 }
 add_action( 'wp_enqueue_scripts', 'tr_scripts_and_styles_options' );

@@ -40,6 +40,7 @@
 				<i class="fa fa-bars"></i>
 				<a href="#menu-container" class="screen-reader-text"><?php _e( 'Menu', 'tabula-rasa' ); ?></a>
 		</div>
+		<div class="header-image"></div>
 		<div class="site-branding">
 			<h1 class="site-title"><a href="<?php echo esc_url( home_url( '/' ) ); ?>" rel="home"><?php bloginfo( 'name' ); ?></a></h1>
 			<h2 class="site-description"><?php bloginfo( 'description' ); ?></h2>
@@ -63,5 +64,6 @@
 			</div>
 		</div>
 	</header><!-- #masthead -->
-
+	
+	<div class="site-content-wrapper">
 	<div id="content" class="site-content">

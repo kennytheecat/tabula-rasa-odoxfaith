@@ -7,7 +7,16 @@ Stylesheet: 768up Stylesheet
 html{}
 body {}
 .site {}
-.site-header {}
+.wrap {
+	.max-width(1000px); 
+	margin: 0 auto 0;	
+}
+.site-header {
+	.wrap;
+}
+.site-content-wrapper {
+	.wrap;
+}
 .site-content {	
 	.content-area {
 		.column(8);
@@ -21,10 +30,13 @@ body {}
 		.last;
 		.padding(10px);
 		list-style: none;
-		background-color: #FFFEFE;
 		
 	}
 }
 .site-footer {
 	clear: both;
+	
+	.inner-footer {
+		.wrap;
+	}
 }
