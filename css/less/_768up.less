@@ -41,6 +41,91 @@ body {}
 	}
 }
 
+/******************************************************************
+HEADER & NAVIGATION
+******************************************************************/
+
+/** Site Header
+-------------------------------------------------------------- */
+.site-header {
+	.margin-top(20px);
+	position: relative;
+	.height(250px);
+}	
+.header-image {
+	background: url(../images/good_shepherd_250.png);
+	.width(190px);
+	.height(250px);
+	position: absolute;
+	.top(0);
+	.left(0);
+}
+.site-branding {
+	.padding(10px);
+	.padding-top(25px);
+	.padding-left(190px);
+	width: 100%;
+		
+	.site-title {
+		//.font-size(80px);
+		.font-size(60px);		
+		text-shadow: 1px 1px 1px #999;
+	}
+	.site-description {}
+	a {}	
+}
+
+/* Main Navigation
+**************************************************************/
+/* Small menu */
+.mobile-menu {
+	display: none;
+}
+.main-navigation {
+	display: inline-block;
+	width: 100%;
+
+	
+	.mmenu-toggle {
+		.height(44px);
+		display: inline;
+	}
+	.nav-menu {
+		display: inline-block;
+		background: @sec-color url(../images/nav_bg.png) repeat-x;
+		.border-radius(4px);
+		box-shadow: 1px 1px 1px @black;
+		.height(50px);
+		
+		ul {
+			margin: 0;
+			padding: 0;
+			.padding-left(240px);
+			display: inline-block;
+			
+			li a {
+				text-shadow: 1px 1px 0px #874;
+			}
+		}
+		
+	}
+	
+	.search-not-mobile {
+		display: inline-block;
+		float: right;
+		.padding-top(5px);
+	}
+}
+
+/* Header Search Bar
+******************************************************************/
+.search-mobile {
+	display: none;
+}
+.search-not-mobile {
+	display: inline-block;
+}
+
 /** Home 
 -------------------------------------------------------------- */
 .home {
