@@ -40,3 +40,54 @@ body {}
 		.wrap;
 	}
 }
+
+/** Home 
+-------------------------------------------------------------- */
+.home {
+	.site-content {
+		padding: 0;
+		.content-area {
+			.column(12);
+			margin: 0;
+			padding: 0;
+			
+			.featured {
+				overflow: hidden;
+				.padding(10px);
+				margin: 0;
+				.min-height(320px);
+				
+				.featured-content {
+					iframe {
+						.height(280px);
+					}
+				}
+			}
+		}
+	}
+	.featured-cats {
+		.featured-cat-wrapper {
+			.column(4);
+
+			&:nth-of-type(7), 
+			&:nth-of-type(8), 
+			&:nth-of-type(9) {
+				display: inline;
+			}		
+			&:nth-of-type(2n+1) {
+				.column(4);
+				clear: none;
+			}				
+			&:nth-of-type(2n) {
+				.column(4);
+			}				
+			&:nth-of-type(3n+1) {
+				.first;
+				clear: both;
+			}				
+			&:nth-of-type(3n) {
+				.last;
+			}				
+		}
+	}	
+}

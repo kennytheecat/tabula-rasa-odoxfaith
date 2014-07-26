@@ -797,22 +797,14 @@ OTHER PAGES
 -------------------------------------------------------------- */
 .home {
 	.featured {
-		height: 320px; 
-		box-shadow: 0px 0px 5px #222;
 		
 		.featured-content {
 			padding: 10px; 
-		//	width: 400px; 
-		//	height: 300px;	
-.column(5);
-.first;
+
 			
 			iframe {}
 		}
 		.featured-text {
-		//	width: 500px;
-		.column(7);
-.last;
 			padding: 15px 10px;
 			text-align: center;
 			font-size: 24px;
@@ -820,25 +812,24 @@ OTHER PAGES
 			font-weight: bold;			
 		}
 	}
-	.featured-divider {}
 	.featured-cats {
 		background: none;
 		
-		//.featured-cat-wrap {
-		//	padding: 5px;
-		//	width: 296px;
-		//	float: left;
-		//	margin: 15px 0px;
-		//	position: relative;
-		//	box-shadow: inset 0px 0px 5px black;
+		.featured-cat-wrapper {
+			position: relative;
+			overflow: hidden;
+			
+			&:nth-of-type(n+5) {
+				display: none;
+			}					
+				
 		
 			.featured-cat {
 				color: @black;
 				.padding(5px);
-				overflow: hidden;
-				.min-height(425px);
+				.padding-top(20px);
 				background-color: @sec-color;
-				border: 2px solid @content-color;
+				border-top: 2px solid @content-color;
 				
 				.home-featured-image {
 				
@@ -858,37 +849,22 @@ OTHER PAGES
 					}
 				}
 				.home-featured-text {
-					.margin(10px)
+					.margin(10px);
+					
+					
 					p {
-						//font-size: 16px;
 						text-align: justify;
-						//line-height: 1.45em;
-						//font-family: 'Asul';
-						//color: #111;				
+						margin-top: 0;
+						overflow: hidden;
 					}
 				}
 				.read-more {
-					background:#cb7;
-					height: 24px;
-					position: absolute;
-					top: 428px;
-					left: 95px;
-					border-radius: 15px;
-					border: 2px solid #863;
-					padding-top: 3px;			
+					display: none;
 					
-					a {
-						text-decoration: none;
-						padding: 15px;
-						margin: 0 auto 0;
-						color: #800;
-						font-weight: bold;
-						font-family: 'Open Sans Condensed';
-						font-size: 16px;					
-					}
+					a {}
 				}
 			}
-		//}
+		}
 	}
 }
 
