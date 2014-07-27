@@ -294,6 +294,7 @@ header#masthead .site-header
 .site-branding {
 	display: inline;
 	float: left;
+	width: 80%;
 	
 	.site-title {
 		margin: 0;
@@ -418,6 +419,10 @@ header#masthead .site-header
 	display: inline;
 	float: left;
 	text-align: center;
+	
+	.fa-bars {
+		color: @tert-color;
+	}
 }
 .main-navigation.toggled .nav-menu {
 	display: inline-block;
@@ -428,6 +433,19 @@ header#masthead .site-header
 }
 .mm-list > li {
 	width: 100%;
+}
+
+div.mm-menu {
+	background-color: @prim-color;
+	
+	ul {
+		li {
+			a {
+				font-weight: bold;
+				color: @tert-color;
+			}
+		}
+	}
 }
 /** Social Menu
 ******************************************************************/
@@ -470,7 +488,7 @@ header#masthead .site-header
 .search-mobile,
 .search-not-mobile {
 	float: right;
-	color: @grey;
+	color: @tert-color;
 	text-align: center;
 	cursor: pointer;
 	.font-size(21px);
@@ -494,7 +512,7 @@ input[type="search"] {
 }
 .search-box {
 	.padding(5px);
-	background: @grey;
+	background-color: @prim-color;
 	
 	.search-field {
 		.padding(5px);
