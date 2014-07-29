@@ -603,6 +603,11 @@ POSTS & CONTENT STYLES
 		color: @white;
 	 }
 	}
+	.pagination-header {
+		font-weight: bold;
+		text-align: center;
+		margin-top: 0;
+	}
 	.nav-previous {
 		width: 50%;
 		float: left;
@@ -889,7 +894,11 @@ OTHER PAGES
 /** Archives
 -------------------------------------------------------------- */
 .archive {
-	
+	.page-title {
+		.font-size(16px);
+		color: @tert-color;
+		border-bottom: 1px solid @grey;
+	}	
 	article {
 		overflow: hidden;
 		.margin-bottom(20px);

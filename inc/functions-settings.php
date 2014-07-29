@@ -277,7 +277,7 @@ if ( ! function_exists( 'tr_post_nav' ) ) :
 /**
  * Display navigation to next/previous post when applicable.
  */
-function tr_post_nav() {
+function tr_post_nav() {		
 	// Don't print empty markup if there's nowhere to navigate.
 	$previous = ( is_attachment() ) ? get_post( get_post()->post_parent ) : get_adjacent_post( false, '', true );
 	$next     = get_adjacent_post( false, '', false );
@@ -287,6 +287,19 @@ function tr_post_nav() {
 	}
 	?>
 	<nav class="navigation post-navigation" role="navigation">
+	<?php
+		/* translators: used between list items, there is a space after the comma */
+		$category_list = get_the_category_list( __( ', ', 'tabula-rasa' ) );
+		$meta_text = __( '<p class="pagination-header">Read more articles related to  %1$s.</p>', 'tabula-rasa' );
+
+		printf(
+			$meta_text,
+			$category_list,
+			get_permalink()
+		);
+	?>
+	<?php edit_post_link( __( 'Edit', 'tabula-rasa' ), '<span class="edit-link">', '</span>' ); ?>
+	
 		<h1 class="screen-reader-text"><?php _e( 'Post navigation', 'tabula-rasa' ); ?></h1>
 		<div class="nav-links">
 			<?php

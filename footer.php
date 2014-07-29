@@ -7,8 +7,8 @@
  * @package tabula-rasa
  */
 ?>
-	<?php if (!is_home) {?>
-	</div><!-- #content -->
+	<?php if (!is_home()) {?>
+		</div><!-- #content -->
 	</div><!-- .site-content-wrapper -->
 	<?php } ?>
 	<footer id="colophon" class="site-footer" role="contentinfo">

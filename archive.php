@@ -14,11 +14,11 @@ get_header(); ?>
 
 		<?php if ( have_posts() ) : ?>
 			
-			<?php if ( !is_category() ) { ?>
 			<header class="page-header">
 				<h1 class="page-title">
 					<?php
 						if ( is_category() ) :
+							echo 'Articles about ';
 							single_cat_title();
 
 						elseif ( is_tag() ) :
@@ -36,33 +36,6 @@ get_header(); ?>
 						elseif ( is_year() ) :
 							printf( __( 'Year: %s', 'tabula-rasa' ), '<span>' . get_the_date( _x( 'Y', 'yearly archives date format', 'tabula-rasa' ) ) . '</span>' );
 
-						elseif ( is_tax( 'post_format', 'post-format-aside' ) ) :
-							_e( 'Asides', 'tabula-rasa' );
-
-						elseif ( is_tax( 'post_format', 'post-format-gallery' ) ) :
-							_e( 'Galleries', 'tabula-rasa');
-
-						elseif ( is_tax( 'post_format', 'post-format-image' ) ) :
-							_e( 'Images', 'tabula-rasa');
-
-						elseif ( is_tax( 'post_format', 'post-format-video' ) ) :
-							_e( 'Videos', 'tabula-rasa' );
-
-						elseif ( is_tax( 'post_format', 'post-format-quote' ) ) :
-							_e( 'Quotes', 'tabula-rasa' );
-
-						elseif ( is_tax( 'post_format', 'post-format-link' ) ) :
-							_e( 'Links', 'tabula-rasa' );
-
-						elseif ( is_tax( 'post_format', 'post-format-status' ) ) :
-							_e( 'Statuses', 'tabula-rasa' );
-
-						elseif ( is_tax( 'post_format', 'post-format-audio' ) ) :
-							_e( 'Audios', 'tabula-rasa' );
-
-						elseif ( is_tax( 'post_format', 'post-format-chat' ) ) :
-							_e( 'Chats', 'tabula-rasa' );
-
 						else :
 							_e( 'Archives', 'tabula-rasa' );
 
@@ -77,7 +50,6 @@ get_header(); ?>
 					endif;
 				?>
 			</header><!-- .page-header -->
-			<?php } ?>
 			
 			<?php /* Start the Loop */ ?>
 			<?php while ( have_posts() ) : the_post(); ?>
