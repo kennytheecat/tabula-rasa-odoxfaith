@@ -298,7 +298,6 @@ function tr_post_nav() {
 			get_permalink()
 		);
 	?>
-	<?php edit_post_link( __( 'Edit', 'tabula-rasa' ), '<span class="edit-link">', '</span>' ); ?>
 	
 		<h1 class="screen-reader-text"><?php _e( 'Post navigation', 'tabula-rasa' ); ?></h1>
 		<div class="nav-links">

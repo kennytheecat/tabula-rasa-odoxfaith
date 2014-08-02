@@ -19,17 +19,22 @@ class excerpts_by_alt_category_Widget extends WP_Widget {
 	}
 
 	public function widget( $args, $instance ) {
-global $post;
-$categories = get_the_category($post->ID);
-$cate = $categories[0]->cat_ID;
+		global $post;
+		$categories = get_the_category($post->ID);
+		$cat_name = $categories[0]->cat_name;
 	
 		extract( $args );
+		$title = 'Featured Articles';
+
 		echo $before_widget;
+		$before_title = '<div class="widget-title-wrap"><div class="widget-title">';
+		$after_title = '</div></div>';
+		if ( ! empty( $title ) ) echo $before_title . $title . $after_title;
 
 		$args= array(
 			'posts_per_page' => 1,
 			'orderby' => 'rand',
-			'cat' => -$cate
+			'cat' => -$cat_name
 			);
 
 	$featuredWidget= new WP_Query($args);
@@ -47,6 +52,75 @@ $cate = $categories[0]->cat_ID;
 
 }
 register_widget( 'excerpts_by_alt_category_Widget' );
+?>
+<?php
+class posts_by_category_Widget extends WP_Widget {
+
+	public function __construct() {
+		parent::__construct(
+	 		'posts_by_category', // Base ID
+			'Posts by Category', // Name
+			array( 'description' => __( 'Displays posts by category')) // Args
+		);
+	}
+	
+	public function update( $new_instance, $old_instance ) {
+		$instance = array();
+		$instance['title'] = strip_tags( $new_instance['title'] );
+
+		return $instance;
+	}
+
+	public function form( $instance ) {
+		$title = (isset( $instance[ 'title' ])) ? $instance[ 'title' ] : 'Featured Business';
+
+	?>
+		<p>
+		<label for="<?php echo $this->get_field_id( 'title' ); ?>"><?php _e( 'Title:' ); ?></label> 
+		<input class="widefat" id="<?php echo $this->get_field_id( 'title' ); ?>" name="<?php echo $this->get_field_name( 'title' ); ?>" type="text" value="<?php echo esc_attr( $title ); ?>" />
+		</p>
+	<?php 
+	}
+
+
+	public function widget( $args, $instance ) {
+		global $post;
+		$categories = get_the_category($post->ID);
+		$cat_name = $categories[0]->cat_name;
+	
+		extract( $args );
+		$title = 'More Articles About ' . $cat_name; 
+
+		echo $before_widget;
+		$before_title = '<div class="widget-title-wrap"><div class="widget-title">';
+		$after_title = '</div></div>';
+		if ( ! empty( $title ) ) echo $before_title . $title . $after_title;
+
+		$args= array(
+			'posts_per_page' => -1,
+			'category_name' => $cat_name
+			);
+
+	$featuredWidget= new WP_Query($args);
+	
+	while ( $featuredWidget->have_posts() ) : $featuredWidget->the_post(); ?>
+	
+	<div class="widget_featured">
+		
+		<h3><a href="<?php the_permalink(); ?>"><?php the_title(); ?></a></h3>
+		<?php the_excerpt();?>
+	</div>
+		
+		<?php
+	endwhile;
+	
+	wp_reset_postdata();
+
+		echo $after_widget; 
+	}
+
+}
+register_widget( 'posts_by_category_Widget' );
 ?>
 <?php
 class recommended_articles_Widget extends WP_Widget {
@@ -70,9 +144,11 @@ class recommended_articles_Widget extends WP_Widget {
 
 	public function widget( $args, $instance ) {
 			extract( $args );
-		$title = 'Recommended Articles:'; 
+		$title = 'Articles from the Web'; 
 
 		echo $before_widget;
+		$before_title = '<div class="widget-title-wrap"><div class="widget-title">';
+		$after_title = '</div></div>';
 
 	$custom = get_post_custom($post->ID);
 	$link1 = $custom["link1"] [0];
@@ -87,7 +163,7 @@ class recommended_articles_Widget extends WP_Widget {
 	$title5 = $custom["title5"] [0];
 		if ( ! empty( $title ) && $link1 != '' ) echo $before_title . $title . $after_title;	
 if ($link1 != '') {
-	echo '<div id="post_extras">';
+	//echo '<div id="post_extras">';
 	if ($link1 != '') { 
 		echo '<a href="' . $link1 . '" target="_blank">' . $title1 . '</a><br />';
 	}
@@ -103,7 +179,7 @@ if ($link1 != '') {
 	if ($link5 != '') { 
 		echo '<a href="' . $link5 . '" target="_blank">' . $title5 . '</a><br />';
 	}
-	echo '</div>';
+	//echo '</div>';
 }
 	wp_reset_postdata();
 		echo $after_widget; 
@@ -138,16 +214,19 @@ class church_fathers_Widget extends WP_Widget {
 		$title = 'Quotes from the Early Church'; 
 
 		echo $before_widget;
+		$before_title = '<div class="widget-title-wrap"><div class="widget-title">';
+		$after_title = '</div></div>';
 		if ( ! empty( $title ) ) echo $before_title . $title . $after_title;
+		
 	$custom = get_post_custom($post->ID);
 	$cfquote = $custom["cfquote"] [0];
 	
 if ($cfquote != '') {
-	echo '<div id="post_extras">';
+	//echo '<div id="post_extras">';
 	if ($cfquote != '') { 
 		echo $cfquote . '<br />';
 	}
-	echo '</div>';
+	//echo '</div>';
 }
 	wp_reset_postdata();
 		echo $after_widget; 
@@ -182,19 +261,22 @@ class featured_video_Widget extends WP_Widget {
 		$title = 'Featured Video'; 
 
 		echo $before_widget;
+		$before_title = '<div class="widget-title-wrap"><div class="widget-title">';
+		$after_title = '</div></div>';
+		if ( ! empty( $title ) ) echo $before_title . $title . $after_title;
 
 	$custom = get_post_custom($post->ID);
 	$video_link = $custom["video_link"] [0];
 	$video_desc = $custom["video_desc"] [0];	
 		if ( ! empty( $title )  && ($video_link != '') ) echo $before_title . $title . $after_title;	
 if ($video_link != '') {
-	echo '<div id="post_extras">';
+	//echo '<div id="post_extras">';
 	if ($video_link != '') { 
 		echo '<div id="extra_video"><h3>Featured Video - ' . $video_desc . '</h3>				<object type="application/x-shockwave-flash" style="width:275px; height:225px;" data="http://www.youtube.com/v/' . $video_link . '">
 					<param name="movie" value="http://www.youtube.com/v/' .  $video_link . '" />
 				</object><br /></div>';
 	}
-	echo '</div>';
+	//echo '</div>';
 }
 	wp_reset_postdata();
 		echo $after_widget; 
@@ -225,9 +307,11 @@ class amazon_ads_Widget extends WP_Widget {
 
 	public function widget( $args, $instance ) {
 			extract( $args );
-		$title = 'Recommended Books:'; 
+		$title = 'Recommended Books'; 
 
 		echo $before_widget;
+		$before_title = '<div class="widget-title-wrap"><div class="widget-title">';
+		$after_title = '</div></div>';
 
 	$custom = get_post_custom($post->ID);
 	$amazon_link1 = $custom["amazon_link1"] [0];
