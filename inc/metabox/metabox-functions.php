@@ -23,6 +23,26 @@ function cmb_sample_metaboxes( array $meta_boxes ) {
 	/**
 	 * Metabox to be displayed on a single page ID
 	 */
+	$meta_boxes['ppp'] = array(
+		'id'         => 'ppp',
+		'title'      => __( 'Related Articles', 'tabula-rasa' ),
+		'pages'      => array( 'post', ), // Post type
+		'context'    => 'side',
+		'priority'   => 'default',
+		'show_names' => true, // Show field names on the left
+		'fields'     => array(
+			array(
+				'name' => __( 'Posts Per Page', 'tabula-rasa' ),
+				'desc' => __( '', 'tabula-rasa' ),
+				'id'   => 'ppp',
+				'type' => 'text',
+			),
+		)
+	);
+
+	/**
+	 * Metabox to be displayed on a single page ID
+	 */
 	$meta_boxes['cfquote'] = array(
 		'id'         => 'cfquote',
 		'title'      => __( 'Church Father Quotes', 'tabula-rasa' ),
