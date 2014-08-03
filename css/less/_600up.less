@@ -190,3 +190,33 @@ Stylesheet: 600up Stylesheet
 		.font-size(18px);
 	}
 }
+
+/* Footer
+************************************************************************/
+.site-footer {
+	.inner-footer {
+		.site-map-section {
+			.column(4);
+			
+			&:nth-of-type(1) {
+				.first;
+			}
+			&:nth-of-type(3) {
+				.last;
+			}		
+			.site-map-title {}
+			ul {
+				padding: 0;
+				li {
+					list-style: none;
+					
+					a {}
+				}
+			}
+		} 
+		.site-info {
+			clear: both;
+			width: 100%;
+		}
+	}
+}

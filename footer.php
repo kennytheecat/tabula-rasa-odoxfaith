@@ -13,8 +13,33 @@
 	<?php } ?>
 	<footer id="colophon" class="site-footer" role="contentinfo">
 		<div class="inner-footer">
+<?php
+// get all the categories from the database
+$cats = get_categories(); 
+
+// loop through the categries
+foreach ($cats as $cat) {
+		// setup the cateogory ID
+		$cat_id = $cat->term_id;
+		if ( $cat_id == 1 ) continue;
+		// Make a header for the cateogry
+		echo "<div class='site-map-section'>";
+		echo "<h2 class='site-map-title'>".$cat->name."</h2>";
+		echo "<ul>";
+		
+		// create a custom wordpress query
+		query_posts("cat=$cat_id&posts_per_page=100");
+		// start the wordpress loop!
+		if (have_posts()) : while (have_posts()) : the_post(); ?>
+			<li><a href="<?php the_permalink();?>"><?php the_title(); ?></a></li>
+		<?php 
+		endwhile; 
+		endif; // done our wordpress loop. Will start again for each category ?>
+	</ul>
+	</div>		
+<?php } // done the foreach statement ?>
 			<div class="site-info">
-				<?php printf( __( 'Site Design by %1$s', 'tabula-rasa' ), 'tabula-rasa', '<a href="http://third-law.com/" rel="designer">Third Law Web Design</a>' ); ?>
+				<?php printf( __( 'Site Design by %1$s', 'tabula-rasa' ),  '<a href="http://third-law.com/" rel="designer">Third Law Web Design</a>' ); ?>
 			</div><!-- .site-info -->
 		</div>	
 	</footer><!-- #colophon -->

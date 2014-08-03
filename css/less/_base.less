@@ -762,15 +762,22 @@ footer#colophon .site-footer
 	background: @sec-color;
 	
 	.inner-footer {
-	
-	}
-	.entry-meta {	}
-	a {}	
-	ul {
-		li {
-			a {}
-			&:first-child {}
-			&:last-child {}
+		.site-map-section {
+			display: none;
+		}
+		.site-info {
+			text-align: center;
+			border-top: 1px solid @black;
+			.padding-top(5px);
+			font-family: @heading-font;	
+			
+			a {
+				text-decoration: none;
+				
+				&:hover {
+					text-decoration: underline;
+				}
+			}
 		}
 	}
 }
