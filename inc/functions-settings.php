@@ -66,7 +66,7 @@ function tr_scripts_and_styles() {
 		}
 
 		//adding scripts file in the footer
-		wp_enqueue_script( 'tabula_rasa-js', get_stylesheet_directory_uri() . '/js/scripts.js', array( 'jquery' ), '', true );
+		//wp_enqueue_script( 'tabula_rasa-js', get_stylesheet_directory_uri() . '/js/scripts.js', array( 'jquery' ), '', true );
 			
 		//wp_enqueue_script( 'tabula-rasa-navigation', get_template_directory_uri() . '/js/navigation.js', array(), '20120206', true );
 
@@ -137,21 +137,22 @@ function tr_social_menu() {
   }
 }
 
-add_image_size( 'featured_cat', 278, 125, true );
+add_image_size( 'featured_cat', 320, 160, true );
 add_image_size( 'archive', 300, 200, true );
 
 /** Google Analytics
 **************************************************************/
 function google_analytics_tracking_code(){ ?>
-	<script>
-		(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
-		(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
-		m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
-		})(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
 
-		ga('create', 'UA-2432710-6', 'prescott-az.gov');
-		ga('send', 'pageview');
-	</script>
+  ga('create', 'UA-34332027-1', 'auto');
+  ga('send', 'pageview');
+
+</script>
 <?php }	
 add_action('wp_head', 'google_analytics_tracking_code');
 

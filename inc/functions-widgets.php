@@ -221,9 +221,9 @@ class amazon_ads_Widget extends WP_Widget {
 					echo '
 					<div class="ad_image_wrap">
 						<div class="ad_image">
-						<a href="http://www.amazon.com/gp/product/' . $value['product_link_post'] . '/ref=as_li_ss_il?ie=UTF8&camp=1789&creative=390957&creativeASIN=' . $value['product_link_post'] . '&linkCode=as2&tag=rv0f-20" target="_blank"><img border="0" src="http://ws.assoc-amazon.com/widgets/q?_encoding=UTF8&ASIN=' . $value['product_link_post'] . '&Format=_SL110_&ID=AsinImage&MarketPlace=US&ServiceVersion=20070822&WS=1&tag=rv0f-20" ></a><img src="http://www.assoc-amazon.com/e/ir?t=rv0f-20&l=as2&o=1&a=' . $value['product_link_post'] . '" width="1" height="1" border="0" alt="" style="border:none !important; margin:0px !important;" />
+						<a href="http://www.amazon.com/gp/product/' . $value['product_link_post'] . '/ref=as_li_ss_il?ie=UTF8&camp=1789&creative=390957&creativeASIN=' . $value['product_link_post'] . '&linkCode=as2&tag=odoxfaith-20" target="_blank"><img border="0" src="http://ws.assoc-amazon.com/widgets/q?_encoding=UTF8&ASIN=' . $value['product_link_post'] . '&Format=_SL110_&ID=AsinImage&MarketPlace=US&ServiceVersion=20070822&WS=1&tag=odoxfaith-20" ></a><img src="http://www.assoc-amazon.com/e/ir?t=odoxfaith-20&l=as2&o=1&a=' . $value['product_link_post'] . '" width="1" height="1" border="0" alt="" style="border:none !important; margin:0px !important;" />
 						</div>
-						<div class="ad_text"><a href="http://www.amazon.com/gp/product/' . $value['product_link_post'] . '/ref=as_li_ss_il?ie=UTF8&camp=1789&creative=390957&creativeASIN=' . $value['product_link_post'] . '&linkCode=as2&tag=rv0f-20" target="_blank">' . $value['product_title_post'] . '</a>
+						<div class="ad_text"><a href="http://www.amazon.com/gp/product/' . $value['product_link_post'] . '/ref=as_li_ss_il?ie=UTF8&camp=1789&creative=390957&creativeASIN=' . $value['product_link_post'] . '&linkCode=as2&tag=odoxfaith-20" target="_blank">' . $value['product_title_post'] . '</a>
 						</div>
 					</div>';
 				} 

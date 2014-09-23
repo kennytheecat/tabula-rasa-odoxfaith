@@ -38,9 +38,12 @@ foreach ($cats as $cat) {
 	</ul>
 	</div>		
 <?php } // done the foreach statement ?>
-			<div class="site-info">
-				<?php printf( __( 'Site Design by %1$s', 'tabula-rasa' ),  '<a href="http://third-law.com/" rel="designer">Third Law Web Design</a>' ); ?>
-			</div><!-- .site-info -->
+			<div class="bottom-footer">
+				<div class="site-info">
+					<?php printf( __( 'Site Design by %1$s', 'tabula-rasa' ),  '<a href="http://third-law.com/" rel="designer">Third Law Web Design</a>' ); ?>
+				</div><!-- .site-info -->
+				<?php wp_nav_menu( array( 'theme_location' => 'social', 'container_class' => 'menu-social') ); ?>				
+			</div>
 		</div>	
 	</footer><!-- #colophon -->
 </div><!-- #page -->

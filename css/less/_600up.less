@@ -16,7 +16,7 @@ Stylesheet: 600up Stylesheet
 	.margin(0, 5px);
 }
 .site-content {
-	background:  @content-color url(css/img/trans1.png) repeat;
+	background: url(../images/trans1.png) repeat @content-color;
 	box-shadow: 0px 0px 5px #222;
 	
 	.content-area {
@@ -38,7 +38,7 @@ Stylesheet: 600up Stylesheet
 .home {
 	.featured {
 		.margin-bottom(20px);
-		background: url(../images/trans1.png) repeat #CB7;		
+		background: url(../images/trans1.png) repeat @content-color;		
 		box-shadow: 0px 0px 5px #222;
 
 		.featured-text {
@@ -214,9 +214,48 @@ Stylesheet: 600up Stylesheet
 				}
 			}
 		} 
-		.site-info {
+		.bottom-footer {
 			clear: both;
-			width: 100%;
+			width: 100%;		
+			overflow: hidden;
+			
+			.site-info {
+				float: left;
+			}
+			/** Social Menu
+			******************************************************************/
+			.menu-social {
+				display: inline;
+				
+				ul {
+						float: right;
+						text-align: center;
+						list-style: none; 
+						margin: 0;
+
+					li {
+						position: relative;
+						display:  inline-block;    
+
+						a {
+							&:before {
+								display: inline-block;
+								padding: 0 5px;
+								vertical-align: top;
+								font-family: 'FontAwesome';
+								font-size: 20px;
+								color: @grey;
+								-webkit-font-smoothing: antialiased;
+								content: '\f0c0';
+								color: @tert-color;
+							}
+							&[href*="facebook.com"]::before { content: '\f09a'; }
+							&[href*="twitter.com"]::before { content: '\f099'; }
+							&[href*="plus.google.com"]::before { content: '\f0d5'; }	
+						}
+					} 
+				}		
+			}
 		}
 	}
 }
